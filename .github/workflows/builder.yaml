@@ -38,6 +38,7 @@ jobs:
         run: | 
           cd executorch
           ./install_executorch.sh
+          python -m pip wheel . --no-build-isolation -v --wheel-dir=dist
 
       - name: installing tools requried for the backend and the runtime 
         run: |
