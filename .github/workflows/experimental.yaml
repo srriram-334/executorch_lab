@@ -30,6 +30,7 @@ jobs:
 
       - name: access the repository
         run: |
+          ls -la
           cd executorch
           echo "repo cloned successfully"
       
@@ -38,4 +39,5 @@ jobs:
           args: "-DEXECUTORCH_BUILD_COREML=OFF -DEXECUTORCH_BUILD_CORTEX_M=ON -DEXECUTORCH_BUILD_XNNPACK=OFF"
         run: | 
           cd executorch
+          echo "successful"
 
