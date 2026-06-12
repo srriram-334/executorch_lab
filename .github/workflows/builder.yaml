@@ -38,7 +38,7 @@ jobs:
         run: | 
           cd executorch
           ./install_executorch.sh
-          cd executorch #just to check the folder before building c++ runtime
+          ls executorch #just to check the folder before building c++ runtime
 
       - name: installing tools requried for the backend and the runtime 
         run: |
