@@ -13,3 +13,9 @@ jobs:
           branch: 'viable/strict'
           owner: 'pytorch'
           repository: 'executorch'
+
+      - name: access the repository
+        run: |
+          echo "cloned repo"
+          cd executorch
+          ls -la
