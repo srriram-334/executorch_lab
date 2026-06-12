@@ -12,14 +12,13 @@ jobs:
       - name: check the files from checkout 
         run: |
           ls -la
+          cd .cache
  
       - name: installing micromamba
         uses: mamba-org/setup-micromamba@v3
         with:
           environment-file: environment.yml
           init-shell: bash
-        run: |
-          ccache
 
       - name: clone executorch viable/strict branch
         uses: GuillaumeFalourd/clone-github-repo-action@main
@@ -39,6 +38,4 @@ jobs:
           args: "-DEXECUTORCH_BUILD_COREML=OFF -DEXECUTORCH_BUILD_CORTEX_M=ON -DEXECUTORCH_BUILD_XNNPACK=OFF"
         run: | 
           cd executorch
-          ccache
-          ls  #just to check the folder before building c++ runtime
 
