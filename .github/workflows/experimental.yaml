@@ -12,7 +12,6 @@ jobs:
       - name: check the files from checkout 
         run: |
           ls -la
-          cd .cache
  
       - name: installing micromamba
         uses: mamba-org/setup-micromamba@v3
