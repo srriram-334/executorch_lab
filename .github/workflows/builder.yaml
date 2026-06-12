@@ -32,4 +32,4 @@ jobs:
           echo "cloned repo"
           cd executorch
           ls -la
-          import numpy 
+          micromamba list  
