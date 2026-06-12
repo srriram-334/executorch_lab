@@ -18,6 +18,8 @@ jobs:
         with:
           environment-file: environment.yml
           init-shell: bash
+        run: |
+          ccache
 
       - name: clone executorch viable/strict branch
         uses: GuillaumeFalourd/clone-github-repo-action@main
