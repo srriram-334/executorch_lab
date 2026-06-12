@@ -29,7 +29,14 @@ jobs:
 
       - name: access the repository
         run: |
-          echo "cloned repo"
           cd executorch
-          ls -la
-          micromamba list  
+          echo "repo cloned successfully"
+      
+      - name: install executorch with CORTEX_M backend
+        run: | 
+          cd executorch
+          CMAKE_ARGS = "-DEXECUTORCH_BUILD_COREML=OFF \ 
+                       -DEXECUTORCH_BUILD_CORTEX_M=ON \
+                       -DEXECUTORCH_BUILD_XNNPACK=OFF" \
+                       ./install_executorch.sh
+
