@@ -6,6 +6,15 @@ jobs:
   repo-download:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repository
+        uses: actions/checkout@v6
+
+      - name: installing micromamba
+        uses: mamba-org/setup-micromamba@v3
+        with:
+          environment-file: environemnt.yml
+          init-shell: bash
+
       - name: clone executorch viable/strict branch
         uses: GuillaumeFalourd/clone-github-repo-action@main
         with:
@@ -19,3 +28,4 @@ jobs:
           echo "cloned repo"
           cd executorch
           ls -la
+          import numpy 
