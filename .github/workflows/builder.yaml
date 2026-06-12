@@ -6,6 +6,9 @@ jobs:
   repo-download:
     runs-on: ubuntu-latest
     steps:
+      - name: Install ccache
+        run: sudo apt-get update && sudo apt-get install -y ccache
+
       - name: checkout repository
         uses: actions/checkout@v6
 
@@ -26,6 +29,15 @@ jobs:
           branch: 'viable/strict'
           owner: 'pytorch'
           repository: 'executorch'
+      
+      - name: Restore Cache
+        id: cache-restore
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            ~/.ccache
+            ~/.cache/pip
+          key: ${{ runner.os }}-executorch-ccache
 
       - name: access the repository
         run: |
@@ -59,3 +71,12 @@ jobs:
           ls 
           cd cmake-out
           ls
+
+      - name: Save Cache
+        if: success()
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            ~/.ccache
+            ~/.cache/pip
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
