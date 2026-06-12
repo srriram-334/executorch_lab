@@ -16,7 +16,7 @@ jobs:
       - name: installing micromamba
         uses: mamba-org/setup-micromamba@v3
         with:
-          environment-file: environemnt.yml
+          environment-file: environment.yml
           init-shell: bash
 
       - name: clone executorch viable/strict branch
