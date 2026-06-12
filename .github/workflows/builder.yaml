@@ -8,8 +8,11 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v6
+
+      - name: check the files from checkout 
         run: |
-          ls
+          ls -la
+ 
       - name: installing micromamba
         uses: mamba-org/setup-micromamba@v3
         with:
