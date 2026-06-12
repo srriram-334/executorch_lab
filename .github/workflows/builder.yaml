@@ -1,0 +1,15 @@
+name: executorch-builder
+
+on: [push]
+
+jobs:
+  repo-download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone executorch viable/strict branch
+        uses: GuillaumeFalourd/clone-github-repo-action@main
+        with:
+          depth: 1
+          branch: 'viable/strict'
+          owner: 'pytorch'
+          repository: 'executorch'
