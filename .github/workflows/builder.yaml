@@ -33,10 +33,9 @@ jobs:
           echo "repo cloned successfully"
       
       - name: install executorch with CORTEX_M backend
+        env:
+          args: "-DEXECUTORCH_BUILD_COREML=OFF -DEXECUTORCH_BUILD_CORTEX_M=ON -DEXECUTORCH_BUILD_XNNPACK=OFF"
         run: | 
           cd executorch
-          CMAKE_ARGS = "-DEXECUTORCH_BUILD_COREML=OFF \ 
-                       -DEXECUTORCH_BUILD_CORTEX_M=ON \
-                       -DEXECUTORCH_BUILD_XNNPACK=OFF" \
-                       ./install_executorch.sh
+          CMAKE_ARGS=$args ./install_executorch.sh
 
