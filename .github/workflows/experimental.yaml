@@ -37,6 +37,6 @@ jobs:
           args: "-DEXECUTORCH_BUILD_COREML=OFF -DEXECUTORCH_BUILD_CORTEX_M=ON -DEXECUTORCH_BUILD_XNNPACK=OFF"
         run: | 
           cd executorch
-          which ccache
+          ccache
           ls  #just to check the folder before building c++ runtime
 
