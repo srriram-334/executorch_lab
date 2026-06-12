@@ -52,6 +52,12 @@ jobs:
           ./install_executorch.sh
           python -m pip wheel . --no-build-isolation -v --wheel-dir=dist
 
+      - name: Upload Python Wheel
+        uses: actions/upload-artifact@v4
+        with:
+          name: executorch-wheel
+          path: executorch/dist/*.whl
+
       - name: installing tools requried for the backend and the runtime 
         run: |
           cd executorch
